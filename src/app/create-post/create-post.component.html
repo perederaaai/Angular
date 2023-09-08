@@ -1,0 +1,13 @@
+<div class="container">
+  <h2>Title for post component</h2>
+  <input type="text" class="inpt" placeholder="name" [(ngModel)]="name"
+  >
+  <input type="text" class="inpt" placeholder="second name" [(ngModel)]="secondName">
+  <input type="password" class="inpt" placeholder="password" [(ngModel)]="password">
+  <div class="btn-wrap">
+    <button class="btn" (click)="getDate()">Show Info</button>
+    <button class="btn" (click)="getName()">Show name only</button>
+  </div>
+  <p></p>
+  <p></p>
+</div>

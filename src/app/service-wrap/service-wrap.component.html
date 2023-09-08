@@ -1,0 +1,21 @@
+<div class="container-row">
+
+
+    <div >
+      <h2>Global Service <span>2</span>:
+        {{GlobalService.counter}}</h2>
+      <button class="btn"
+              (click)="GlobalService.decr()" >+</button>
+      <button class="btn"
+              (click)="GlobalService.ecr()">-</button>
+
+      <h3>local Service <span>2</span> =
+        {{LocalService.counter}}</h3>
+      <button class="btn"
+              (click)="LocalService.decr()" >+</button>
+      <button class="btn"
+              (click)="LocalService.ecr()">-</button>
+    </div>
+</div>
+<hr>
+

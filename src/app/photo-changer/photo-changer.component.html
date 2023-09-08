@@ -1,0 +1,27 @@
+<div class="container">
+  <input [(ngModel)]="inputPhoto"
+  placeholder="wrote something"
+         (keyup)="twiser()"
+  >
+
+  <p>You mean: {{result}}?</p>
+ <div>
+   <button class="btn"
+           (click)="activateChanger()"
+
+   >
+     Click me now!
+   </button>
+ </div>
+
+  <img [src]="img" alt="">
+
+  <h2>Global Service <span>3</span>:
+    {{GlobalService.counter}}</h2>
+  <button class="btn"
+          (click)="GlobalService.decr()" >+</button>
+  <button class="btn"
+          (click)="GlobalService.ecr()">-</button>
+  <hr>
+
+</div>
