@@ -1,11 +1,19 @@
+<app-http-client>
 
+
+</app-http-client>
+<app-forms
+>
+</app-forms>
 <div class="container-row">
   <h1>Angular stream with RxJS</h1>
   <button class="btn"
-          (click)="stop()">Stop interval</button>
+          (click)="stop()">Stop interval
+  </button>
   <p>{{num}}</p>
   <button class="btn"
-          (click)="nextSubscribe()">next</button>
+          (click)="nextSubscribe()">next
+  </button>
   <h1>Angular Servises</h1>
 </div>
 <hr>
@@ -14,16 +22,20 @@
     <h2>Global Service <span>1</span>:
       {{GlobalService.counter}}</h2>
     <button class="btn"
-            (click)="GlobalService.decr()" >+</button>
+            (click)="GlobalService.decr()">+
+    </button>
     <button class="btn"
-            (click)="GlobalService.ecr()">-</button>
+            (click)="GlobalService.ecr()">-
+    </button>
 
     <h3>local Service <span>1</span> =
       {{LocalService.counter}}</h3>
     <button class="btn"
-            (click)="LocalService.decr()" >+</button>
+            (click)="LocalService.decr()">+
+    </button>
     <button class="btn"
-            (click)="LocalService.ecr()">-</button>
+            (click)="LocalService.ecr()">-
+    </button>
 
   </div>
 </div>

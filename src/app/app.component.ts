@@ -24,7 +24,7 @@ export interface dateWithoutPass {
 
 export class AppComponent {
 
-                   // Work with Post
+  // Work with Post
   names: dateWithoutPass;
   myName: string = 'Ihor';
   mySecondName: string = 'Peredera'
@@ -45,82 +45,81 @@ export class AppComponent {
   setInputValue(event: string): void {
     this.colorValue = event;
     // console.log(this.colorValue, 'app')
-}
+  }
 
-                                  //work with Service in constructor and html
-                                  // create variable for stream$
-  num:number = 3;
+                               //work with Service in constructor and html
+                                   // create variable for stream$
+  num: number = 3;
   value: any
   sub: Subscription;
   sub2: Subscription;
   sub3: Subscription;
   intervalStream$ = interval(1000);
-  subscribe$: Subject<number> = new Subject<number>()
+  subscribe$: Subject<number> = new Subject<number>();
 
 
   constructor(public LocalService: LocalServiceService,
-              public GlobalService: GlobalServiceService){
+              public GlobalService: GlobalServiceService) {
 
     //Work with streams$
 
-    this.sub3 = this.subscribe$.subscribe((value)=>{
+    this.sub3 = this.subscribe$.subscribe((value) => {
       console.log('subscribe value is ', value)
     })
 
-  const streams$ = new Observable( obs =>{
-    setTimeout(()=> {
-      obs.next(1)
-    }, 1000)
+    const streams$ = new Observable(obs => {
+      setTimeout(() => {
+        obs.next(1)
+      }, 1000)
 
-    setTimeout(()=>{
-      obs.error('somising went wrong')
-    }, 1500)
-
-
-    setTimeout(()=>{
-      obs.complete()
-    }, 1600)
+      setTimeout(() => {
+        obs.error('somising went wrong')
+      }, 1500)
 
 
-    setTimeout(()=>{
-      obs.next(2)
-    }, 3000)
-  });
+      setTimeout(() => {
+        obs.complete()
+      }, 1600)
 
 
-  this.sub2 = streams$
-    .subscribe(
-      value1 =>  console.log(value1, 'value1'),
-      error => console.log(error, 'error'),
-      ()=> console.log('stream is done')
-    )
-               //    опрацювати помилку через еррор. якшо готово то через компліт
-
-  this.sub = this.intervalStream$
-    .pipe(
-      map((value)=>
-        `maped value = ${value.toString()}`
-      )
-    )
-    .subscribe(value => {
-      console.log(value)
-      value = String(this.num = this.num+1)
-      // console.log(value, 'num')
-      this.num === 6 ? this.sub.unsubscribe() : null
+      setTimeout(() => {
+        obs.next(2)
+      }, 3000)
     });
-}
 
 
+    this.sub2 = streams$
+      .subscribe(
+        value1 => console.log(value1, 'value1'),
+        error => console.log(error, 'error'),
+        () => console.log('stream is done')
+      )
+    //    опрацювати помилку через еррор. якшо готово то через компліт
 
-stop() {
-  this.sub.unsubscribe()
-  this.sub2.unsubscribe()
-  this.sub3.unsubscribe()
-};
+    this.sub = this.intervalStream$
+      .pipe(
+        map((value) =>
+          `maped value = ${value.toString()}`
+        )
+      )
+      .subscribe(value => {
+        console.log(value)
+        value = String(this.num = this.num + 1)
+        // console.log(value, 'num')
+        this.num === 6 ? this.sub.unsubscribe() : null
+      });
+  }
 
-  nextSubscribe(){
-  this.num++
-  this.subscribe$.next(this.num)
-}
+
+  stop() {
+    this.sub.unsubscribe()
+    this.sub2.unsubscribe()
+    this.sub3.unsubscribe()
+  };
+
+  nextSubscribe() {
+    this.num++
+    this.subscribe$.next(this.num)
+  }
 
 }

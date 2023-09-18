@@ -28,7 +28,7 @@ export class PhotoChangerComponent {
     // this.toogle = !this.toogle
   }
 
-  twiser(){
+  doubler(){
     this.result = this.inputPhoto
   }
 

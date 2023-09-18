@@ -9,14 +9,14 @@ export class GlobalServiceService {
 
   counter: number = 1;
 
-  decr(){
+  decr() {
     this.counter++
   };
 
-  ecr(){
+  ecr() {
     this.counter--
   };
-  }
+}
 
 //import { Component, Injectable } from '@angular/core';
 //

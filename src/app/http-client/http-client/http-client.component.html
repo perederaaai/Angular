@@ -1,0 +1,37 @@
+<div class="container">
+  <h1>Angular Http-Client</h1>
+  <div class="card">
+    <div class="form-control">
+      <input type="text" placeholder="add title" [(ngModel)]="userTitle">
+    </div>
+    <button class="btn" (click)="addTitle()">Add</button>
+    <button class="btn" (click)="downloadData()">Download</button>
+  </div>
+
+  <hr>
+  <div *ngIf="!loadFlag; else loaderBlock">
+    <div *ngIf="respHttp.length; else nothingPost">
+      <div class="card" *ngFor="let resp of respHttp;">
+        <p class="p-wrap">
+          <span
+            [class.completed]="resp.completed"
+          >{{resp.title | titlecase}}</span>
+          <span>
+      <button class="btn-danger" (click)="removePost(resp.id)">Delete</button>
+    <button class="btn"
+            [disabled]="resp.completed"
+            (click)="completedElement(resp.id)"
+    >
+      Completed</button>
+    </span>
+        </p>
+      </div>
+    </div>
+    <ng-template #nothingPost>
+      <p>We havent a post...(</p>
+    </ng-template>
+  </div>
+  <ng-template #loaderBlock>
+    <p>Loading...</p>
+  </ng-template>
+</div>
